@@ -9,6 +9,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "Engine/LocalPlayer.h"
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -55,7 +56,7 @@ void AUEBasicCharacter::BeginPlay()
 {
 	// Call the base class  
 	Super::BeginPlay();
-
+	
 	//Add Input Mapping Context
 	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
 	{

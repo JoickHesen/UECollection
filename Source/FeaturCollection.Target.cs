@@ -1,5 +1,3 @@
-// Copyright Epic Games, Inc. All Rights Reserved.
-
 using UnrealBuildTool;
 using System.Collections.Generic;
 
@@ -8,8 +6,15 @@ public class FeaturCollectionTarget : TargetRules
 	public FeaturCollectionTarget(TargetInfo Target) : base(Target)
 	{
 		Type = TargetType.Game;
-		DefaultBuildSettings = BuildSettingsVersion.V5;
-		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_4;
-		ExtraModuleNames.Add("FeaturCollection");
+
+		DefaultBuildSettings = BuildSettingsVersion.V7;
+		IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_8;
+
+		ExtraModuleNames.AddRange(
+		new string[]
+		{
+			"FeaturCollection",
+			"UEBasic"
+		});
 	}
 }

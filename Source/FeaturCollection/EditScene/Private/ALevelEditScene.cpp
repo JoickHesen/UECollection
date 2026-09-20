@@ -175,68 +175,68 @@ void AALevelEditScene::ImportLevelConfig(FString CongfigPath)
 		}
 		
 		// 解析 Player 数据
-		const TSharedPtr<FJsonObject> PlayerData = JsonObject->GetObjectField("player");
-		const TSharedPtr<FJsonObject> PlayerLocation = PlayerData->GetObjectField("location");
+		const TSharedPtr<FJsonObject> PlayerData = JsonObject->GetObjectField(TEXT("player"));
+		const TSharedPtr<FJsonObject> PlayerLocation = PlayerData->GetObjectField(TEXT("location"));
 
 		FVector PlayerLocationVec = FVector(
-			PlayerLocation->GetNumberField("x"),
-			PlayerLocation->GetNumberField("y"),
-			PlayerLocation->GetNumberField("z")
+			PlayerLocation->GetNumberField(TEXT("x")),
+			PlayerLocation->GetNumberField(TEXT("y")),
+			PlayerLocation->GetNumberField(TEXT("z"))
 		);
 		CreateActorOfType(ActorData, "Player", PlayerLocationVec);
 
 		// 解析 Wall 数据
-		const TArray<TSharedPtr<FJsonValue>> WallArray = JsonObject->GetArrayField("walls");
+		const TArray<TSharedPtr<FJsonValue>> WallArray = JsonObject->GetArrayField(TEXT("walls"));
 		for (const TSharedPtr<FJsonValue>& WallValue : WallArray)
 		{
-			const TSharedPtr<FJsonObject> WallLocation = WallValue->AsObject()->GetObjectField("location");
+			const TSharedPtr<FJsonObject> WallLocation = WallValue->AsObject()->GetObjectField(TEXT("location"));
 
 			FVector WallLocationVec = FVector(
-				WallLocation->GetNumberField("x"),
-				WallLocation->GetNumberField("y"),
-				WallLocation->GetNumberField("z")
+				WallLocation->GetNumberField(TEXT("x")),
+				WallLocation->GetNumberField(TEXT("y")),
+				WallLocation->GetNumberField(TEXT("z"))
 			);
 			CreateActorOfType(ActorData, "Wall", WallLocationVec);
 		}
 
 		// 解析 Box数据
-		const TArray<TSharedPtr<FJsonValue>> BoxArray = JsonObject->GetArrayField("boxs");
+		const TArray<TSharedPtr<FJsonValue>> BoxArray = JsonObject->GetArrayField(TEXT("boxs"));
 		for (const TSharedPtr<FJsonValue>& BoxValue : BoxArray)
 		{
-			const TSharedPtr<FJsonObject> BoxLocation = BoxValue->AsObject()->GetObjectField("location");
+			const TSharedPtr<FJsonObject> BoxLocation = BoxValue->AsObject()->GetObjectField(TEXT("location"));
 
 			FVector BoxLocationVec = FVector(
-				BoxLocation->GetNumberField("x"),
-				BoxLocation->GetNumberField("y"),
-				BoxLocation->GetNumberField("z")
+				BoxLocation->GetNumberField(TEXT("x")),
+				BoxLocation->GetNumberField(TEXT("y")),
+				BoxLocation->GetNumberField(TEXT("z"))
 			);
 			CreateActorOfType(ActorData, "Box", BoxLocationVec);
 		}
 
 		// 解析 Target数据
-		const TArray<TSharedPtr<FJsonValue>> TargetArray = JsonObject->GetArrayField("targets"); 
+		const TArray<TSharedPtr<FJsonValue>> TargetArray = JsonObject->GetArrayField(TEXT("targets")); 
 		for (const TSharedPtr<FJsonValue>& WallValue : WallArray)
 		{
-			const TSharedPtr<FJsonObject> WallLocation = WallValue->AsObject()->GetObjectField("location");
+			const TSharedPtr<FJsonObject> WallLocation = WallValue->AsObject()->GetObjectField(TEXT("location"));
 
 			FVector WallLocationVec = FVector(
-				WallLocation->GetNumberField("x"),
-				WallLocation->GetNumberField("y"),
-				WallLocation->GetNumberField("z")
+				WallLocation->GetNumberField(TEXT("x")),
+				WallLocation->GetNumberField(TEXT("y")),
+				WallLocation->GetNumberField(TEXT("z"))
 			);
 			CreateActorOfType(ActorData, "Target", WallLocationVec);
 		}
 
 		//解析 Tarp数据
-		const TArray<TSharedPtr<FJsonValue>> TarpArray = JsonObject->GetArrayField("traps"); 
+		const TArray<TSharedPtr<FJsonValue>> TarpArray = JsonObject->GetArrayField(TEXT("traps")); 
 		for (const TSharedPtr<FJsonValue>& TarpValue : TarpArray)
 		{
-			const TSharedPtr<FJsonObject> TarpLocation = TarpValue->AsObject()->GetObjectField("location");
+			const TSharedPtr<FJsonObject> TarpLocation = TarpValue->AsObject()->GetObjectField(TEXT("location"));
 
 			FVector TrapLocationVec = FVector(
-				TarpLocation->GetNumberField("x"),
-				TarpLocation->GetNumberField("y"),
-				TarpLocation->GetNumberField("z")
+				TarpLocation->GetNumberField(TEXT("x")),
+				TarpLocation->GetNumberField(TEXT("y")),
+				TarpLocation->GetNumberField(TEXT("z"))
 			);
 			CreateActorOfType(ActorData, "Tarp", TrapLocationVec);
 		}
